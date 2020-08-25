@@ -35,21 +35,26 @@ inquirer.prompt([
       message: "What would you like in you Table of Contents",
       name: "Contents",
       choices: [
-        "HTML", 
-        "CSS", 
-        "JavaScript", 
-        "MySQL"
+        "Installation", 
+        "Usage", 
+        "Credits", 
+        "License"
       ]
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: [
-        "email",
-        "phone",
-        "telekinesis"
-      ]
+        type: "input",
+        install: "installation",
+        message: "What are the steps required to install your project?"
+    },
+    {
+        type: "input",
+        usage: "usage",
+        message: "What instructions do you have for youer application?"
+    },
+    {
+        type: "input",
+        credits: "credits",
+        message: "What are there other collabrators you'd like to list?"
     }
   ]).then(function(answers) {
   
