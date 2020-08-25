@@ -56,7 +56,7 @@ inquirer.prompt([
         credits: "credits",
         message: "What are there other collabrators you'd like to list?"
     }
-  ]).then(function(answers) {
+  ]).then(answers => {
     let readme = " "
     console.log(answers.title)
     console.log(answers.description)
