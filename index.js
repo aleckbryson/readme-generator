@@ -6,6 +6,8 @@ var fs = require('fs');
 
 // ];
 
+
+
 // // function to write README file
 // function writeToFile(fileName, data) {
 // }
@@ -73,6 +75,8 @@ inquirer.prompt([
       }
   
       console.log("Success!");
+      const readPush = fs.appendFile("README>md", answers, readme, err)
+      var 
   
     });
   });
