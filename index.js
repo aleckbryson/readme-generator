@@ -57,9 +57,17 @@ inquirer.prompt([
         message: "What are there other collabrators you'd like to list?"
     }
   ]).then(function(answers) {
-  
-    fs.writeFile("README.md", JSON.stringify(answers, null, '\t'), function(err) {
-      console.log(answers)
+    let readme = " "
+    console.log(answers.title)
+    console.log(answers.description)
+
+    var titleName = answers.title
+    var descrip = answers.description
+
+    readme.append("#" + titleName)
+    readme.append(descrip)
+
+    fs.writeFile("README.md", answers, readme, err => {
       if (err) {
         return console.log(err);
       }
