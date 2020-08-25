@@ -1,1 +1,5 @@
-# readme-generator
+{
+	"name": "Aleck ",
+	"stack": [],
+	"contact": "email"
+}
