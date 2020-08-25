@@ -6,8 +6,6 @@ var fs = require('fs');
 
 // ];
 
-
-
 // // function to write README file
 // function writeToFile(fileName, data) {
 // }
@@ -51,7 +49,22 @@ inquirer.prompt([
     {
         type: "input",
         usage: "usage",
+        message: "Do you have any usage information that you'd like to add?"
+    },
+    {
+        type: "input",
+        credits: "credits",
+        message: "Are there other collabrators you'd like to list?"
+    },
+    {
+        type: "input",
+        tests: "tests",
         message: "What instructions do you have for youer application?"
+    },
+    {
+        type: "input",
+        credits: "credits",
+        message: "What are there other collabrators you'd like to list?"
     },
     {
         type: "input",
@@ -63,11 +76,12 @@ inquirer.prompt([
     console.log(answers.title)
     console.log(answers.description)
 
-    var titleName = answers.title
-    var descrip = answers.description
-
-    readme.append("#" + titleName)
-    readme.append(descrip)
+    readme.append("#" + answers.title);
+    readme.append("###" + answers.description + "/n" + answers.description.message);
+    readme.append("###" + answers.install + "/n" + answers.description.message);
+    readme.append("###" + answers.usage + "/n" + answers.description.message);
+    readme.append("###" + answers.credits + "/n" + answers.description.message);
+    readme.append("###" + answers.tests + "/n" + answers.description.message);
 
     fs.writeFile("README.md", answers, readme, err => {
       if (err) {
