@@ -59,10 +59,11 @@ inquirer.prompt([
     ### Tests ${answers.tests}
     ### Questions ${answers.question}
     `;
-    fs.writeFile("README.md", answers + '\n', function (err) {
+
+    fs.writeFile("README.md", JSON.stringify(answers) + '\n', function (err) {
         if (err) {
             return console.log(err);
         }   
-        console.log("Success!")
+        console.log("Enjoy your README!")
     });
 });
