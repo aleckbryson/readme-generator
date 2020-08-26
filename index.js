@@ -1,28 +1,28 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
 
-// function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile("README.md", data, function (err) {
-        if (err) {
-            return console.log(err);
-        }
-        // console.log("Success!");
-    });
-}
+// // function to write README file
+// function writeToFile(data) {
+//     fs.writeFile("README.md", data, function (err) {
+//         if (err) {
+//             return console.log(err);
+//         }
+//         // console.log("Success!");
+//     });
+// }
 
-writeToFile()
+// writeToFile()
 
 inquirer.prompt([
     {
-      type: "input",
-      name: "title",
-      message: "What is your Project Title?"
+        type: "input",
+        name: "title",
+        message: "What is your Project Title?"
     },
     {
-      type: "input",
-      name: "description",
-      message: "What is your Project Description?"
+        type: "input",
+        name: "description",
+        message: "What is your Project Description?"
     },
     {
         type: "input",
@@ -49,23 +49,20 @@ inquirer.prompt([
         name: "questions",
         message: "Where can people contact you with questions?"
     },
-  ]).then(answers => {
-    // var readme = " "
-    var answers = process.argv
-   
-    fs.appendFile("README.md", answers + '\n', err => {
-      if (err) {
-        return console.log(err);
-      } else {
-        //   
-          `# ${answers.title}`;
-          `### Description ${answers.description}`;
-          `### Installation ${answers.install}`;
-          `### Usage ${answers.usage}`;
-          `### Credits ${answers.credits}`;
-          `### Tests ${answers.tests}`;
-         `### Questions ${answers.question}`;
-      }
+]).then(answers => {
+
+    `# ${answers.title}
+    ### Description ${answers.description}
+    ### Installation ${answers.install}
+    ### Usage ${answers.usage}
+    ### Credits ${answers.credits}
+    ### Tests ${answers.tests}
+    ### Questions ${answers.question}
+    `;
+    fs.writeFile("README.md", answers + '\n', function (err) {
+        if (err) {
+            return console.log(err);
+        }   
+        console.log("Success!")
     });
-  });
-  
+});
