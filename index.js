@@ -7,18 +7,11 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
-        console.log("Success!");
+        // console.log("Success!");
     });
 }
 
 writeToFile()
-// // // function to initialize program
-// function init() {
-   
-// }
-
-// // // function call to initialize program
-// init();
 
 inquirer.prompt([
     {
@@ -60,18 +53,18 @@ inquirer.prompt([
     var readme = " "
     var answers = process.argv
    
-    fs.appendFile("README.md", answers, '\n', err => {
+    fs.appendFile("README.md", answers + '\n', err => {
       if (err) {
         return console.log(err);
       } else {
-        //   console.log("Success!");
-          readme.append(`# ${answers.title}`);
-          readme.append(`### Description \n ${answers.description.message}`);
-          readme.append(`### Installation \n ${answers.install.message}`);
-          readme.append(`### Usage \n ${answers.usage.message}`);
-          readme.append(`### Credits \n ${answers.credits.message}`);
-          readme.append(`### Tests \n ${answers.tests.message}`);
-          readme.append(`### Questions \n ${answers.question.message}`);
+        //   
+          `# ${answers.title}`;
+          `### Description ${answers.description}`;
+          `### Installation ${answers.install}`;
+          `### Usage ${answers.usage}`;
+          `### Credits ${answers.credits}`;
+          `### Tests ${answers.tests}`;
+         `### Questions ${answers.question}`;
       }
     });
   });
