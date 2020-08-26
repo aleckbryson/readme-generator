@@ -50,7 +50,7 @@ inquirer.prompt([
         message: "Where can people contact you with questions?"
     },
   ]).then(answers => {
-    var readme = " "
+    // var readme = " "
     var answers = process.argv
    
     fs.appendFile("README.md", answers + '\n', err => {
