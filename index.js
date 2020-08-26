@@ -1,16 +1,17 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
 
-// // function to write README file
-// function writeToFile(fileName, data) {
-//     fs.writeFile("README.md", data, function (err) {
-//         if (err) {
-//             return console.log(err);
-//         }
-//         console.log("Success!");
-//     });
-// }
+// function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile("README.md", data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Success!");
+    });
+}
 
+writeToFile()
 // // // function to initialize program
 // function init() {
    
