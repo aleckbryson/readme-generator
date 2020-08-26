@@ -1,23 +1,23 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
 
-// function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile("README.md", data, function (err) {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("Success!");
-    });
-}
+// // function to write README file
+// function writeToFile(fileName, data) {
+//     fs.writeFile("README.md", data, function (err) {
+//         if (err) {
+//             return console.log(err);
+//         }
+//         console.log("Success!");
+//     });
+// }
 
-// // function to initialize program
-function init() {
+// // // function to initialize program
+// function init() {
    
-}
+// }
 
-// // function call to initialize program
-init();
+// // // function call to initialize program
+// init();
 
 inquirer.prompt([
     {
@@ -73,16 +73,16 @@ inquirer.prompt([
     fs.appendFile("README.md", answers, '\n', err => {
       if (err) {
         return console.log(err);
+      } else {
+          console.log("Success!");
+          readme.append(`# ${answers.title}`);
+          readme.append(`### Description \n ${answers.description.message}`);
+          readme.append(`### Installation \n ${answers.install.message}`);
+          readme.append(`### Usage \n ${answers.usage.message}`);
+          readme.append(`### Credits \n ${answers.credits.message}`);
+          readme.append(`### Tests \n ${answers.tests.message}`);
+          readme.append(`### Questions \n ${answers.question.message}`);
       }
-      console.log("Success!");
-      readme.append(`# ${answers.title}`);
-      readme.append(`### Description \n ${answers.description.message}`);
-      readme.append(`### Installation \n ${answers.install.message}`);
-      readme.append(`### Usage \n ${answers.usage.message}`);
-      readme.append(`### Credits \n ${answers.credits.message}`);
-      readme.append(`### Tests \n ${answers.tests.message}`);
-      readme.append(`### Questions \n ${answers.question.message}`);
-
     });
   });
   
