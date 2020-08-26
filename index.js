@@ -23,59 +23,48 @@ writeToFile()
 inquirer.prompt([
     {
       type: "input",
-      title: "title",
+      name: "title",
       message: "What is your Project Title?"
     },
     {
       type: "input",
-      description: "description",
+      name: "description",
       message: "What is your Project Description?"
     },
     {
-      type: "checkbox",
-      message: "What would you like in you Table of Contents",
-      name: "Contents",
-      choices: [
-        "Installation", 
-        "Usage", 
-        "Credits", 
-        "License"
-      ]
-    },
-    {
         type: "input",
-        install: "installation",
+        name: "installation",
         message: "What are the steps required to install your project?"
     },
     {
         type: "input",
-        usage: "usage",
+        name: "usage",
         message: "Do you have any usage information that you'd like to add?"
     },
     {
         type: "input",
-        credits: "credits",
+        name: "credits",
         message: "Are there other collabrators you'd like to list?"
     },
     {
         type: "input",
-        tests: "tests",
+        name: "tests",
         message: "What instructions do you have for youer application?"
     },
     {
         type: "input",
-        credits: "questions",
+        name: "questions",
         message: "Where can people contact you with questions?"
     },
   ]).then(answers => {
-    let readme = " "
+    var readme = " "
     var answers = process.argv
    
     fs.appendFile("README.md", answers, '\n', err => {
       if (err) {
         return console.log(err);
       } else {
-          console.log("Success!");
+        //   console.log("Success!");
           readme.append(`# ${answers.title}`);
           readme.append(`### Description \n ${answers.description.message}`);
           readme.append(`### Installation \n ${answers.install.message}`);
