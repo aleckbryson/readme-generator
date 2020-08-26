@@ -1,23 +1,23 @@
 var inquirer = require("inquirer");
-var fs = require('fs');
+var fs = require("fs");
 
-// // array of questions for user
-// const questions = [
-
-// ];
-
-// // function to write README file
-// function writeToFile(fileName, data) {
-// }
+// function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile("README.md", data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Success!");
+    });
+}
 
 // // function to initialize program
-// function init() {
-
-// }
+function init() {
+   
+}
 
 // // function call to initialize program
-// init();
-
+init();
 
 inquirer.prompt([
     {
@@ -63,35 +63,26 @@ inquirer.prompt([
     },
     {
         type: "input",
-        credits: "credits",
-        message: "What are there other collabrators you'd like to list?"
+        credits: "questions",
+        message: "Where can people contact you with questions?"
     },
-    {
-        type: "input",
-        credits: "credits",
-        message: "What are there other collabrators you'd like to list?"
-    }
   ]).then(answers => {
     let readme = " "
-    console.log(answers.title)
-    console.log(answers.description)
-
-    readme.append("#" + answers.title);
-    readme.append("###" + answers.description + "/n" + answers.description.message);
-    readme.append("###" + answers.install + "/n" + answers.description.message);
-    readme.append("###" + answers.usage + "/n" + answers.description.message);
-    readme.append("###" + answers.credits + "/n" + answers.description.message);
-    readme.append("###" + answers.tests + "/n" + answers.description.message);
-
-    fs.writeFile("README.md", answers, readme, err => {
+    var answers = process.argv
+   
+    fs.appendFile("README.md", answers, '\n', err => {
       if (err) {
         return console.log(err);
       }
-  
       console.log("Success!");
-      const readPush = fs.appendFile("README>md", answers, readme, err)
-      var 
-  
+      readme.append(`# ${answers.title}`);
+      readme.append(`### Description \n ${answers.description.message}`);
+      readme.append(`### Installation \n ${answers.install.message}`);
+      readme.append(`### Usage \n ${answers.usage.message}`);
+      readme.append(`### Credits \n ${answers.credits.message}`);
+      readme.append(`### Tests \n ${answers.tests.message}`);
+      readme.append(`### Questions \n ${answers.question.message}`);
+
     });
   });
   
